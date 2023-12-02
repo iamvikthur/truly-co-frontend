@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next --openssl-legacy-provider start",
+    "build": "next --openssl-legacy-provider build",
+    "start": "next start",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "postinstall": "patch-package"
   },
