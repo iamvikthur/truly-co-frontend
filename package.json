@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "postinstall": "patch-package"
   },
-  
+
   "dependencies": {
     "@react-spring/animated": "^9.7.3",
     "@types/react-dom": "^17.0.0",
@@ -31,8 +31,7 @@
     "react-use-gesture": "^8.0.0-alpha.2",
     "styled-components": "4.4.1",
     "swr": "^0.3.1",
-    "three": "^0.119.1",
-    "webpack": "^5.89.0"
+    "three": "^0.119.1"
   },
   "devDependencies": {
     "@lottiefiles/lottie-player": "^0.5.1",
