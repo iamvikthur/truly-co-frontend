@@ -1,7 +1,6 @@
-const withTM = require('next-transpile-modules')(['drei', 'three', 'postprocessing']);
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+}
 
-module.exports = withTM({
-  env: {
-    BASE_URL: 'https://bytruly.co',
-  },
-});
+module.exports = nextConfig
