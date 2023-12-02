@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  truly-co-frontend:
+    image: git.odditystudio.com:5050/oddity/truly-co-frontend:latest
+    container_name: truly-co-frontend
+    restart: unless-stopped
+    command: npm run-script start
+    networks:
+      default:
+        ipv4_address: 172.28.1.10
+
+networks:
+  default:
+    driver: bridge
+    name: truly-co-frontend
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+      com.docker.network.bridge.name: "trulycofrontend"
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.1.0/24

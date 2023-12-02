@@ -1,0 +1,48 @@
+stages:
+    - build
+    - deploy
+
+variables:
+    PROJECT_NAME: "oddity"
+    PROJECT_PATH: "/var/www/truly-co-frontend"
+
+build_prod:
+  stage: build
+  only:
+    - master
+  tags:
+    - bytruly
+    - hetzner
+    - prod 
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+  after_script:
+    - docker rmi $CI_REGISTRY/$PROJECT_NAME/truly-co-frontend:$CI_PIPELINE_ID
+    - docker logout $CI_REGISTRY
+  script:
+    - rm -rf build/app
+    - rsync -avz --exclude=build/ --exclude=.git --exclude=.next/ --exclude=.vscode/ ./ build/app
+    - >-
+      docker build
+      -t $CI_REGISTRY/$PROJECT_NAME/truly-co-frontend:$CI_PIPELINE_ID
+      -t $CI_REGISTRY/$PROJECT_NAME/truly-co-frontend:latest build/.
+
+    - docker push $CI_REGISTRY/$PROJECT_NAME/truly-co-frontend:$CI_PIPELINE_ID
+    - docker push $CI_REGISTRY/$PROJECT_NAME/truly-co-frontend:latest
+
+deploy_prod:
+  stage: deploy
+  only:
+    - master
+  tags:
+    - bytruly
+    - hetzner
+    - prod
+  before_script:
+    - mkdir -p $PROJECT_PATH
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+  after_script:
+    - docker logout $CI_REGISTRY
+  script:
+    - ln -sfn $CI_PROJECT_DIR/build/docker-compose.yml $PROJECT_PATH/
+    - cd $PROJECT_PATH/ && docker-compose up -d --force-recreate --build truly-co-frontend
