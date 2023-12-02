@@ -9,6 +9,7 @@
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "postinstall": "patch-package"
   },
+  
   "dependencies": {
     "@react-spring/animated": "^9.7.3",
     "@types/react-dom": "^17.0.0",
