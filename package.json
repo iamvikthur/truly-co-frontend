@@ -18,7 +18,7 @@
     "moment": "^2.25.3",
     "next": "9.5.2",
     "next-seo": "^4.17.0",
-    "patch-package": "^6.2.2",
+    "patch-package": "^8.0.0",
     "postinstall-postinstall": "^2.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
