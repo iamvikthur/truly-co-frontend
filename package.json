@@ -2,28 +2,26 @@
   "name": "trulyco",
   "version": "0.1.0",
   "private": true,
- 
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "postinstall": "patch-package"
   },
-
   "dependencies": {
-    "@react-spring/animated": "^9.7.3",
     "@types/react-dom": "^17.0.0",
     "cookie": "^0.4.1",
     "drei": "1.3.2",
     "imagesloaded": "^4.1.4",
     "lottie-web": "^5.7.3",
     "moment": "^2.25.3",
-    "next": "13.0.1",
+    "next": "9.5.2",
     "next-seo": "^4.17.0",
+    "patch-package": "^6.2.2",
     "postinstall-postinstall": "^2.1.0",
-    "postcss": "^8.4.18",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-hook-form": "^6.0.6",
     "react-player": "^2.6.0",
     "react-spring": "^9.0.0-rc.3",
@@ -44,13 +42,11 @@
     "@typescript-eslint/eslint-plugin": "^3.9.1",
     "@typescript-eslint/parser": "^3.9.1",
     "babel-plugin-styled-components": "^1.10.7",
-    "eslint": "8.26.0",
-    "eslint-config-next": "13.0.1",
+    "eslint": "^7.7.0",
+    "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "next-transpile-modules": "^4.1.0",
-    "typescript": "^4.3.2"  
-
-
+    "typescript": "^3.9.6"
   },
   "prettier": {
     "printWidth": 100,
