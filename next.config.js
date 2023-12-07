@@ -4,4 +4,5 @@ module.exports = withTM({
   env: {
     BASE_URL: 'https://truly-2vbq.onrender.com',
   },
+  productionSourceMaps: true,
 });
