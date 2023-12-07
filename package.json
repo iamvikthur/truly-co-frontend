@@ -24,7 +24,7 @@
     "react-dom": "16.13.1",
     "react-hook-form": "^6.0.6",
     "react-player": "^2.6.0",
-    "react-spring": "^9.0.0-rc.3",
+    "react-spring": "^9.0.0",
     "react-three-fiber": "^4.2.20",
     "react-use-gesture": "^8.0.0-alpha.2",
     "styled-components": "4.4.1",
