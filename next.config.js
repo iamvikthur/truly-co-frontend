@@ -1,19 +1,9 @@
-const path = require("path");
+const withTM = require('next-transpile-modules')(['drei', 'three', 'postprocessing']);
 
-module.exports = {
-  trailingSlash: true,
-  webpackDevMiddleware: (config) => {
-    config.watchOptions = {
-      poll: 1000,
-      aggregateTimeout: 300,
-    };
+module.exports = withTM({
+  env: {
+    BASE_URL: 'https://truly-2vbq.onrender.com',
+  },
 
-    return config;
-  },
-  sassOptions: {
-    includePaths: [path.join(__dirname, "styles")],
-  },
-  future: {
-    webpack5: true,
-  },
-};
+  
+});
