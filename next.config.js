@@ -1,5 +1,5 @@
 const withTM = require('next-transpile-modules')(['drei', 'three', 'postprocessing'], {
-  debug: true, // Enables debugging output
+  debug: false, // Enables debugging output
 });
 
 module.exports = withTM({
@@ -7,12 +7,12 @@ module.exports = withTM({
     BASE_URL: 'https://truly-2vbq.onrender.com/',
   },
 
-    webpack: config => {
+  webpack: (config) => {
     config.module.rules.push({
       test: /react-spring/,
       sideEffects: true,
-    })
+    });
 
-    return config
+    return config;
   },
 });
