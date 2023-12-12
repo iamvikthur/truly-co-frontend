@@ -4,7 +4,7 @@ const withTM = require('next-transpile-modules')(['drei', 'three', 'postprocessi
 
 module.exports = withTM({
   env: {
-    BASE_URL: 'https://truly-2vbq.onrender.com/',
+    BASE_URL: 'http://143.244.178.155',
   },
 
   webpack: (config) => {
