@@ -6,7 +6,9 @@ module.exports = withTM({
   env: {
     BASE_URL: 'http://143.244.178.155',
   },
-
+images: {
+    domains: [process.env.BASE_URL], // Add your base URL here
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /react-spring/,
