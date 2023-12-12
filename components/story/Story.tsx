@@ -18,9 +18,10 @@ import { TextChapter } from '../../lib/models';
 const Story = ({ story }) => {
   const router = useRouter();
   const { user } = useUser();
-  const { data } = useSWR(story ? `/api/stories/${story}` : null, fetcher, {
+  const { data } = useSWR(story ? `${process.env.BASE_URL}/api/stories/${story}` : null, fetcher, {
     suspense: true,
   });
+  
   const [activeChapterIndex, setActiveChapterIndex] = useState(0);
   const [activeChapter, setActiveCapter] = useState(
     data?.chapters ? data.chapters[activeChapterIndex] : null
