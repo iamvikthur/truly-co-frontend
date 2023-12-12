@@ -5,8 +5,8 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
   const limit = parseInt(req.query.limit as string, 10) || 20;
 
   try {
-    const apiUrl = `${process.env.BASE_URL}/api/stories`; // Assuming '/data' is your API endpoint
-    const response = await fetch(apiUrl);
+    const stories = `${process.env.BASE_URL}/api/stories`; // Assuming '/data' is your API endpoint
+    const response = await fetch(stories);
     
     if (!response.ok) {
       throw new Error('Failed to fetch data from the API');
