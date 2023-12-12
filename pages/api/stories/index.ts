@@ -14,12 +14,13 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
 
     const data = await response.json();
 
-    // Update storyImage URLs to include your base image URL
+    // Update storyImage URLs to use the IP address directly
     const result = req.query.brand ? 
       data.filter((s: any) => s.brandSlug === req.query.brand) : data;
 
     result.forEach((story: any) => {
-      story.storyImage = `${process.env.BASE_URL}/storage/images${story.storyImage}`;
+      story.storyImage = `http://143.244.178.155/storage/images${story.storyImage}`;
+      // Use the actual IP address of your backend
     });
 
     res.status(200).json(result.slice(offset, offset + limit));
