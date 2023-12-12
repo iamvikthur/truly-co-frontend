@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-
-export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> =>
+export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   const offset = parseInt(req.query.offset as string, 10) || 0;
   const limit = parseInt(req.query.limit as string, 10) || 20;
 
