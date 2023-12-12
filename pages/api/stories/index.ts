@@ -1,6 +1,15 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import cors from 'cors';
+
+const corsMiddleware = cors({
+  origin: '*', // Update this with the actual origin of your Next.js app for security
+  methods: ['GET'], // Allow only GET requests, adjust based on your needs
+});
 
 export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
+  // Apply CORS middleware
+  corsMiddleware(req, res);
+
   const offset = parseInt(req.query.offset as string, 10) || 0;
   const limit = parseInt(req.query.limit as string, 10) || 20;
 
