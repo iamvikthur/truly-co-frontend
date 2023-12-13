@@ -22,7 +22,7 @@ const Story = ({ story }) => {
   story ? `${process.env.BASE_URL}/api/stories/${story}` : null,
   fetcher,
   {
-    suspense: true, // Set suspense to false
+    suspense: false, // Set suspense to false
   }
 );
   const [activeChapterIndex, setActiveChapterIndex] = useState(0);
