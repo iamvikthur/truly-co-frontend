@@ -23,6 +23,10 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
       // Use the actual IP address of your backend
     });
 
+    // Set CORS headers for images
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET');
+
     res.status(200).json(result.slice(offset, offset + limit));
   } catch (error) {
     console.error('Error fetching data:', error);
