@@ -19,10 +19,10 @@ const Story = ({ story }) => {
   const router = useRouter();
   const { user } = useUser();
   const { data } = useSWR(
-  story ? `${process.env.BASE_URL}/api/stories/${story}` : null,
+  story ? `http://143.244.178.155/api/stories/${story}` : null,
   fetcher,
   {
-    suspense: false, // Set suspense to false
+    suspense: true, // Set suspense to false
   }
 );
   const [activeChapterIndex, setActiveChapterIndex] = useState(0);
