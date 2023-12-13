@@ -18,55 +18,54 @@ import { TextChapter } from '../../lib/models';
 const Story = ({ story }) => {
   const router = useRouter();
   const { user } = useUser();
-  const { data:storyData } = useSWR(
+  const { data } = useSWR(
   story ? `/api/stories/${story}` : null,
   fetcher,
   {
     suspense: true, // Set suspense to false
-    onSuccess: (storyData) => { console.log("ONSUCCESS", storyData); setData(storyData.stories) }
   }
 );
   
   const [activeChapterIndex, setActiveChapterIndex] = useState(0);
   const [data, setData] = useState({});
   const [activeChapter, setActiveCapter] = useState(
-    data?.chapters ? data.chapters[activeChapterIndex] : null
+    data?.stories?.chapters ? data.stories.chapters[activeChapterIndex] : null
   );
   const [storyHeaderIsHidden, setStoryHeaderIsHidden] = useState(false);
   const filteredChapters = useMemo(
     () =>
-      data?.chapters?.filter((c: any) =>
+      data?.stories?.chapters?.filter((c: any) =>
         c.type === 'crossroad' ? c.continuations.length === 2 : c
       ) || [],
-    [data?.chapters]
+    [data?.stories?.chapters]
   );
   const [hideArrow, setHideArrow] = useState(false);
 
-  console.log("THIS IS DATA", data);
+  console.log("THIS IS DATA", data.stories);
   
   useEffect(() => setActiveChapterIndex(0), [story]);
 
   useEffect(() => {
-    setActiveCapter(data?.chapters ? data.chapters[activeChapterIndex] : null);
+    setActiveCapter(data?.stories?.chapters ? data.stories.chapters[activeChapterIndex] : null);
 
     if (activeChapterIndex !== 0) {
       setStoryHeaderIsHidden(true);
     }
-  }, [activeChapterIndex, data?.chapters]);
+  }, [activeChapterIndex, data?.stories?.chapters]);
 
   const handleStoryHeaderHide = useCallback((hidden: boolean) => {
     setStoryHeaderIsHidden(hidden);
   }, []);
 
   const [, setBrand] = useContext(BrandContext);
-  useEffect(() => setBrand(data?.brandSlug || null), [data?.brandSlug, setBrand]);
+  useEffect(() => setBrand(data?.stories?.brandSlug || null), [data?.stories?.brandSlug, setBrand]);
 
   if (typeof data === 'undefined') return null;
 
-  if (data.status === 'draft' && user.role !== 'Admin' && user.role !== 'Super admin')
+  if (data?.stories?.status === 'draft' && user.role !== 'Admin' && user.role !== 'Super admin')
     return <ErrorPage />;
 
-  if (data.type.toLowerCase() === 'crowdfunding') return <CrowdfundingStory data={data} />;
+  if (data?.stories?.type.toLowerCase() === 'crowdfunding') return <CrowdfundingStory data={data.stories} />;
 
   return (
     <ActiveChapterContext.Provider value={[activeChapterIndex, setActiveChapterIndex]}>
@@ -94,28 +93,28 @@ const Story = ({ story }) => {
       /> */}
 
       <ChapterHeader
-        brand={data.brandSlug}
+        brand={data?.stories?.brandSlug}
         indicators={filteredChapters.map((f: TextChapter) => {
           return { color: f.textColor || '' };
         })}
       />
 
       <StoryHeader
-        authorName={data.authorName}
+        authorName={data?.stories?.authorName}
         blackTheme={
           activeChapter && !activeChapter.image && !activeChapter.embed && !activeChapter.bgColor
         }
         hidden={storyHeaderIsHidden || activeChapterIndex !== 0}
-        publishedAt={data.publishedAt}
-        storyName={data.storyName}
+        publishedAt={data?.stories?.publishedAt}
+        storyName={data?.stories?.storyName}
         textColor={activeChapter ? activeChapter.textColor : ''}
       />
 
       <Chapters
         story={story}
         chapters={filteredChapters}
-        readingUsers={data.readingUsers || []}
-        brand={data.brandSlug}
+        readingUsers={data?.stories?.readingUsers || []}
+        brand={data?.stories?.brandSlug}
         onStoryHeaderHide={handleStoryHeaderHide}
       />
 
