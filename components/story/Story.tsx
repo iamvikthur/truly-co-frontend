@@ -66,28 +66,28 @@ const Story = ({ story }) => {
 
   return (
     <ActiveChapterContext.Provider value={[activeChapterIndex, setActiveChapterIndex]}>
-{/*       <NextSeo
-        title={data.storyName}
-        description={`A story by ${data.authorName}`}
+      <NextSeo
+        title={data?.stories?.storyName}
+        description={`A story by ${data?.stories?.authorName}`}
         openGraph={{
-          title: data.storyName,
-          description: `A story by ${data.authorName}`,
-          url: `${process.env.BASE_URL}/${data.storySlug}`,
+          title: data?.stories?.storyName,
+          description: `A story by ${data?.stories?.authorName}`,
+          url: `${process.env.BASE_URL}/${data?.stories?.storySlug}`,
           type: 'article',
           article: {
-            publishedTime: data.createdAt,
-            modifiedTime: data.updatedAt,
-            tags: data.tags,
+            publishedTime: data?.stories?.createdAt,
+            modifiedTime: data?.stories?.updatedAt,
+            tags: data?.stories?.tags,
           },
           images: [
             {
-              url: `${process.env.BASE_URL}${data.storyImage}`,
+              url: `${process.env.BASE_URL}${data?.stories?.storyImage}`,
               width: 512,
               height: 512,
             },
           ],
         }}
-      /> */}
+      />
 
       <ChapterHeader
         brand={data?.stories?.brandSlug}
