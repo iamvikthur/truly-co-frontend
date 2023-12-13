@@ -35,7 +35,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
 
       // Send a successful response with the processed data
       res.status(200).json({
-        stories: result,
+        result,
         // Add any additional data or keys you want to include in the response
       });
     } else {
