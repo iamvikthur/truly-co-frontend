@@ -43,6 +43,6 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
   } catch (error) {
     // Handle unexpected errors
     console.error('Error fetching data:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: error.toString() });
   }
 };
