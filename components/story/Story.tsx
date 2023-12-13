@@ -65,7 +65,7 @@ const Story = ({ story }) => {
 
   return (
     <ActiveChapterContext.Provider value={[activeChapterIndex, setActiveChapterIndex]}>
-      <NextSeo
+{/*       <NextSeo
         title={data.storyName}
         description={`A story by ${data.authorName}`}
         openGraph={{
@@ -86,7 +86,7 @@ const Story = ({ story }) => {
             },
           ],
         }}
-      />
+      /> */}
 
       <ChapterHeader
         brand={data.brandSlug}
