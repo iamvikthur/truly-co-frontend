@@ -27,7 +27,6 @@ const Story = ({ story }) => {
 );
   
   const [activeChapterIndex, setActiveChapterIndex] = useState(0);
-  const [data, setData] = useState({});
   const [activeChapter, setActiveCapter] = useState(
     data?.stories?.chapters ? data.stories.chapters[activeChapterIndex] : null
   );
