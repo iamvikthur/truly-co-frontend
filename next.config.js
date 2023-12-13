@@ -32,7 +32,14 @@ module.exports = withTM({
   },
 images: {
     domains: ['http://143.244.178.155', 'http://localhost:3000'], // Add your base URL here
-  },
+ remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: '**',
+      },
+    ],
+    minimumCacheTTL: 1500000,
+},
   webpack: (config) => {
     config.module.rules.push({
       test: /react-spring/,
