@@ -18,12 +18,12 @@ import { TextChapter } from '../../lib/models';
 const Story = ({ story }) => {
   const router = useRouter();
   const { user } = useUser();
-  const { data:storyDate } = useSWR(
+  const { data:storyData } = useSWR(
   story ? `/api/stories/${story}` : null,
   fetcher,
   {
     suspense: true, // Set suspense to false
-    onSuccess: (storyData) => { setData(storyData.stories) }
+    onSuccess: (storyData) => { console.log("ONSUCCESS", storyData); setData(storyData.stories) }
   }
 );
   
