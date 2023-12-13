@@ -19,7 +19,7 @@ const Story = ({ story }) => {
   const router = useRouter();
   const { user } = useUser();
   const { data } = useSWR(
-  story ? `${process.env.BASE_URL}/api/stories/${story}` : null,
+  story ? `/api/stories/${story}` : null,
   fetcher,
   {
     suspense: true, // Set suspense to false
