@@ -25,6 +25,7 @@ const Story = ({ story }) => {
     suspense: true, // Set suspense to false
   }
 );
+  console.log("THIS IS DATA", data);
   const [activeChapterIndex, setActiveChapterIndex] = useState(0);
   const [activeChapter, setActiveCapter] = useState(
     data?.chapters ? data.chapters[activeChapterIndex] : null
