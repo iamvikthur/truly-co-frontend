@@ -21,11 +21,13 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
         ? data.filter((s: any) => s.brandSlug === req.query.brand)
         : data;
 
-      result.forEach((story: any) => {
-        story.storyImage = `${process.env.BASE_URL}/api/image?url=${encodeURIComponent(
-          `/storage/images${story.storyImage}`
-        )}`;
-      });
+      console.log("RESULT VARIBALE DATA", result);
+
+      // result.forEach((story: any) => {
+      //   story.storyImage = `${process.env.BASE_URL}/api/image?url=${encodeURIComponent(
+      //     `/storage/images${story.storyImage}`
+      //   )}`;
+      // });
 
       // Set CORS headers for images
       res.setHeader('Access-Control-Allow-Origin', '*');
