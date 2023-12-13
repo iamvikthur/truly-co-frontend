@@ -41,7 +41,7 @@ const Story = ({ story }) => {
   );
   const [hideArrow, setHideArrow] = useState(false);
 
-  console.log("THIS IS DATA", data.stories);
+  console.log("THIS IS DATA", data?.stories);
   
   useEffect(() => setActiveChapterIndex(0), [story]);
 
