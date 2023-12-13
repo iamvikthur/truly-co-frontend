@@ -18,15 +18,17 @@ import { TextChapter } from '../../lib/models';
 const Story = ({ story }) => {
   const router = useRouter();
   const { user } = useUser();
-  const { data } = useSWR(
+  const { data:storyDate } = useSWR(
   story ? `/api/stories/${story}` : null,
   fetcher,
   {
     suspense: true, // Set suspense to false
+    onSuccess: (storyData) => { setData(storyData.stories) }
   }
 );
-  console.log("THIS IS DATA", data);
+  
   const [activeChapterIndex, setActiveChapterIndex] = useState(0);
+  const [data, setData] = useState({});
   const [activeChapter, setActiveCapter] = useState(
     data?.chapters ? data.chapters[activeChapterIndex] : null
   );
@@ -40,6 +42,8 @@ const Story = ({ story }) => {
   );
   const [hideArrow, setHideArrow] = useState(false);
 
+  console.log("THIS IS DATA", data);
+  
   useEffect(() => setActiveChapterIndex(0), [story]);
 
   useEffect(() => {
