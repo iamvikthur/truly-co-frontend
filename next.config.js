@@ -7,7 +7,7 @@ module.exports = withTM({
   async headers() {
     return [
       {
-        source: '/api/stories',
+        source: '/(.*)',
         headers: [
           {
             key: 'Access-Control-Allow-Origin',
@@ -16,6 +16,10 @@ module.exports = withTM({
           {
             key: 'Access-Control-Allow-Methods',
             value: 'GET',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: 'upgrade-insecure-requests',
           },
         ],
       },
