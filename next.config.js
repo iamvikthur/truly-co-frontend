@@ -34,7 +34,7 @@ images: {
     domains: ['https://www.trulyco.app', 'https://admin.trulyco.app'], // Add your base URL here
  remotePatterns: [
       {
-        protocol: 'http',
+        protocol: 'https',
         hostname: '**',
       },
     ],
