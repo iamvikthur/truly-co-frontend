@@ -19,7 +19,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
       data.filter((s: any) => s.brandSlug === req.query.brand) : data;
 
     result.forEach((story: any) => {
-      story.storyImage = `https://admin.trulyco.app${story.storyImage}`;
+      story.storyImage = `https://admin.trulyco.app/${story.storyImage}`;
       // Use the actual IP address of your backend
     });
 
