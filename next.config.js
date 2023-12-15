@@ -17,10 +17,7 @@ module.exports = withTM({
             key: 'Access-Control-Allow-Methods',
             value: 'GET',
           },
-          {
-            key: 'Content-Security-Policy',
-            value: 'upgrade-insecure-requests',
-          },
+        
         ],
       },
       
@@ -31,7 +28,7 @@ module.exports = withTM({
     BASE_URL: 'https://admin.trulyco.app',
   },
 images: {
-    domains: ['https://www.trulyco.app', 'https://admin.trulyco.app'], // Add your base URL here
+    domains: ['https://www.trulyco.app', 'https://admin.trulyco.app/'], // Add your base URL here
  remotePatterns: [
       {
         protocol: 'https',
