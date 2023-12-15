@@ -28,10 +28,10 @@ module.exports = withTM({
     ];
   },
   env: {
-    BASE_URL: 'http://143.244.178.155',
+    BASE_URL: 'https://www.trulyco.app',
   },
 images: {
-    domains: ['http://143.244.178.155', 'http://localhost:3000'], // Add your base URL here
+    domains: ['https://www.trulyco.app/', 'https://www.trulyco.app/'], // Add your base URL here
  remotePatterns: [
       {
         protocol: 'http',
