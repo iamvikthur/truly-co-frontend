@@ -4,38 +4,11 @@ const withTM = require('next-transpile-modules')(['drei', 'three', 'postprocessi
 
 module.exports = withTM({
 
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Access-Control-Allow-Origin',
-            value: '*',
-          },
-          {
-            key: 'Access-Control-Allow-Methods',
-            value: 'GET',
-          },
-        
-        ],
-      },
-      
-      
-    ];
-  },
-  env: {
-    BASE_URL: 'https://admin.trulyco.app',
-  },
+  
+  
 images: {
     domains: ['https://www.trulyco.app', 'https://admin.trulyco.app/'], // Add your base URL here
- remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
-    minimumCacheTTL: 1500000,
+ 
 },
   webpack: (config) => {
     config.module.rules.push({
