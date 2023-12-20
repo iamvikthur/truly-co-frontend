@@ -7,7 +7,7 @@ module.exports = withTM({
     BASE_URL: 'https://admin.trulyco.app',
   },
   images: {
-      domains: ['https://www.trulyco.app', 'https://admin.trulyco.app/'], // Add your base URL here
+      domains: ['https://www.trulyco.app', 'https://admin.trulyco.app'], // Add your base URL here
    
   },
   webpack: (config) => {
