@@ -48,10 +48,6 @@ const Story = ({ story }) => {
     if (activeChapterIndex !== 0) {
       setStoryHeaderIsHidden(true);
     }
-
-    if (data) {
-      data.stories.storyImage = `https://admin.trulyco.app/${data?.stories?.storyImage}`;
-    }
     
   }, [activeChapterIndex, data?.stories?.chapters]);
 
@@ -88,7 +84,7 @@ const Story = ({ story }) => {
           },
           images: [
             {
-              url: `https://admin.trulyco.app/${data?.stories?.storyImage}`,
+              url: `${data?.stories?.storyImage}`,
               width: 512,
               height: 512,
             },
