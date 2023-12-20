@@ -24,7 +24,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
       console.log("RESULT VARIBALE DATA", result);
       //set Image base url
       result.storyImage = `${process.env.BASE_URL}/${result.storyImage}`;
-      console.log("IMAGE URL", result.storyImage, result);
+      console.log("IMAGE URL", result.storyImage);
 
       // result.forEach((story: any) => {
       //   story.storyImage = `${process.env.BASE_URL}/api/image?url=${encodeURIComponent(
