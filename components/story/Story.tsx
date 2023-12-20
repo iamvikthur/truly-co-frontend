@@ -86,7 +86,7 @@ const Story = ({ story }) => {
           },
           images: [
             {
-              url: `${process.env.BASE_URL}${data?.stories?.storyImage}`,
+              url: `https://admin.trulyco.app/${data?.stories?.storyImage}`,
               width: 512,
               height: 512,
             },
