@@ -18,10 +18,10 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
     const result = req.query.brand ? 
       data.filter((s: any) => s.brandSlug === req.query.brand) : data;
 
-    result.forEach((story: any) => {
-      story.storyImage = `https://admin.trulyco.app${story.storyImage}`;
+    // result.forEach((story: any) => {
+      // story.storyImage = `https://admin.trulyco.app${story.storyImage}`;
       // Use the actual IP address of your backend
-    });
+    // });
 
     // Set CORS headers for images
     res.setHeader('Access-Control-Allow-Origin', '*');
