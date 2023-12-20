@@ -33,6 +33,9 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Methods', 'GET');
 
+      //set Image base url
+      result.storyImage = `${process.env.BASE_URL}/${result.storyImage}`;
+
       // Send a successful response with the processed data
       res.status(200).json({
         stories: result,
