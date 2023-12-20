@@ -16,21 +16,16 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
     const data = await response.json();
 
     if (response.ok) {
+      
       // Update storyImage URLs to use the IP address directly
-      const result = req.query.brand
-        ? data.filter((s: any) => s.brandSlug === req.query.brand)
-        : data;
+      // const result = req.query.brand
+      //   ? data.filter((s: any) => s.brandSlug === req.query.brand)
+      //   : data;
 
-      console.log("RESULT VARIBALE DATA", result);
+      console.log("RESULT VARIBALE DATA", data);
       //set Image base url
-      result.storyImage = `${process.env.BASE_URL}/${result.storyImage}`;
-      console.log("IMAGE URL", result.storyImage);
-
-      // result.forEach((story: any) => {
-      //   story.storyImage = `${process.env.BASE_URL}/api/image?url=${encodeURIComponent(
-      //     `/storage/images${story.storyImage}`
-      //   )}`;
-      // });
+      data.storyImage = `${process.env.BASE_URL}${data.storyImage}`;
+      console.log("IMAGE URL", data.storyImage);
 
       // Set CORS headers for images
       res.setHeader('Access-Control-Allow-Origin', '*');
@@ -38,7 +33,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
 
       // Send a successful response with the processed data
       res.status(200).json({
-        stories: result,
+        stories: data,
         // Add any additional data or keys you want to include in the response
       });
     } else {
