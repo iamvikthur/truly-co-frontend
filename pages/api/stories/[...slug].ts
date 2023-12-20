@@ -27,10 +27,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
         chapter.image = `${process.env.BASE_URL}${chapter.image}`;
       });
 
-      console.log("DATA VARIBALE", data);
-      //set Image base url
       data.storyImage = `${process.env.BASE_URL}${data.storyImage}`;
-      console.log("IMAGE URL", data.storyImage);
 
       // Set CORS headers for images
       res.setHeader('Access-Control-Allow-Origin', '*');
