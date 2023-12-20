@@ -49,9 +49,9 @@ const Story = ({ story }) => {
       setStoryHeaderIsHidden(true);
     }
 
-    if (data) {
-      data?.stories?.storyImage = `https://admin.trulyco.app/${data?.stories?.storyImage}`;
-    }
+    // if (data) {
+    //   data.stories.storyImage = `https://admin.trulyco.app/${data?.stories?.storyImage}`;
+    // }
     
   }, [activeChapterIndex, data?.stories?.chapters]);
 
