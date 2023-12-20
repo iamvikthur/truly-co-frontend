@@ -19,8 +19,6 @@ const StoryPage = ({ data }) => {
   const [, setBrand] = useContext(BrandContext);
   useEffect(() => void (story === null && setBrand(null)), [story, setBrand]);
 
-  console.log("ROOT STORY COMPONENT", data);
-
   return (
     <>
       {data ? (
