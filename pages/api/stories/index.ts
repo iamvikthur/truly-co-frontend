@@ -19,7 +19,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
       data.filter((s: any) => s.brandSlug === req.query.brand) : data;
 
     result.forEach((story: any) => {
-      story.storyImage = `https://admin.trulyco.app${story.storyImage}`;
+      story.storyImage = `${process.env.BASE_URL}${story.storyImage}`;
       // Use the actual IP address of your backend
     });
 
@@ -27,8 +27,8 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
     // res.setHeader('Access-Control-Allow-Origin', '*');
     // res.setHeader('Access-Control-Allow-Methods', 'GET');
 
-     res.setHeader('Access-Control-Allow-Credentials', 'true')
-    res.setHeader('Access-Control-Allow-Origin', '*') // replace this your actual origin
+    res.setHeader('Access-Control-Allow-Credentials', 'true')
+    res.setHeader('Access-Control-Allow-Origin', `${process.env.BASE_URL}`) // replace this your actual origin
     res.setHeader('Access-Control-Allow-Methods', 'GET,DELETE,PATCH,POST,PUT')
     res.setHeader(
       'Access-Control-Allow-Headers',
