@@ -37,7 +37,7 @@ const StoryPage = ({ data }) => {
             },
             images: [
               {
-                url: `${'https://admin.trulyco.appp/'}${data.storyImage}`,
+                url: `${process.env.BASE_URL}${data.storyImage}`,
                 width: 512,
                 height: 512,
               },
