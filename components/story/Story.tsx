@@ -69,6 +69,8 @@ const Story = ({ story }) => {
 
   if (data?.stories?.type.toLowerCase() === 'crowdfunding') return <CrowdfundingStory data={data.stories} />;
 
+  console.log("THIS IS DATA VARIABLE", data);
+
   return (
     <ActiveChapterContext.Provider value={[activeChapterIndex, setActiveChapterIndex]}>
       <NextSeo
