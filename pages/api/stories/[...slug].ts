@@ -22,6 +22,9 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
         : data;
 
       console.log("RESULT VARIBALE DATA", result);
+      //set Image base url
+      result.storyImage = `${process.env.BASE_URL}/${result.storyImage}`;
+      console.log("IMAGE URL", result.storyImage, result);
 
       // result.forEach((story: any) => {
       //   story.storyImage = `${process.env.BASE_URL}/api/image?url=${encodeURIComponent(
@@ -32,11 +35,6 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
       // Set CORS headers for images
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Methods', 'GET');
-
-      //set Image base url
-      result.storyImage = `${process.env.BASE_URL}/${result.storyImage}`;
-
-      console.log("IMAGE URL", result.storyImage, result);
 
       // Send a successful response with the processed data
       res.status(200).json({
