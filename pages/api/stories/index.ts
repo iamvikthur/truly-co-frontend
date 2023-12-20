@@ -27,7 +27,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
     // res.setHeader('Access-Control-Allow-Origin', '*');
     // res.setHeader('Access-Control-Allow-Methods', 'GET');
 
-     res.setHeader('Access-Control-Allow-Credentials', true)
+     res.setHeader('Access-Control-Allow-Credentials', 'true')
     res.setHeader('Access-Control-Allow-Origin', '*') // replace this your actual origin
     res.setHeader('Access-Control-Allow-Methods', 'GET,DELETE,PATCH,POST,PUT')
     res.setHeader(
