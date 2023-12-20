@@ -22,6 +22,11 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
       //   ? data.filter((s: any) => s.brandSlug === req.query.brand)
       //   : data;
 
+      data.chapters.forEach((chapter) => {
+        console.log("CHPATER IMAGE", chapter.image);
+        chapter.image = `${process.env.BASE_URL}${chapter.image}`;
+      });
+
       console.log("DATA VARIBALE", data);
       //set Image base url
       data.storyImage = `${process.env.BASE_URL}${data.storyImage}`;
