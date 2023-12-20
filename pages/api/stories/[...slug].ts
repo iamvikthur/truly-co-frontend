@@ -36,6 +36,8 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
       //set Image base url
       result.storyImage = `${process.env.BASE_URL}/${result.storyImage}`;
 
+      console.log("IMAGE URL", result.storyImage, result);
+
       // Send a successful response with the processed data
       res.status(200).json({
         stories: result,
