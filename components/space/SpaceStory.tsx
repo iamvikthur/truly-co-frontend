@@ -26,7 +26,7 @@ const SpaceStory = ({ position = [0, 0, 0], story, onClick, onHover }: SpaceStor
 
   const args = useMemo(() => {
     const loader = new THREE.TextureLoader();
-    loader.crossOrigin = '*';
+    loader.crossOrigin = 'anonymous';
     const uvRate = new THREE.Vector2(1, 1);
     const image = loader.load(story.storyImage, (texture) => {
       texture.minFilter = THREE.LinearFilter;
