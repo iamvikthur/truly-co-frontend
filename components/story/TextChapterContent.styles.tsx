@@ -92,6 +92,10 @@ export const Content = styled(({ brand, forwardRef, ...rest }) => (
     font-style: inherit;
   }
 
+  html {
+    font-family: Inter,"Open Sans", sans-serif !important;
+  }
+
   selected {
     padding-bottom: 4px;
     cursor: pointer;
