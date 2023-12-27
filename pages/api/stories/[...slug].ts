@@ -24,8 +24,9 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
 
       data.chapters.forEach((chapter) => {
         console.log("CHPATER IMAGE", chapter.image);
-        chapter.image = `${process.env.BASE_URL}${chapter.image}`;
-        chapter.audio = `${process.env.BASE_URL}${chapter.audio}`;
+        chapter.image = `${process.env.BASE_URL}${chapter?.image}`;
+        chapter.audio = `${process.env.BASE_URL}${chapter?.audio}`;
+        chapter.video = `${process.env.BASE_URL}${chapter?.video}`;
       });
 
       data.storyImage = `${process.env.BASE_URL}${data.storyImage}`;
