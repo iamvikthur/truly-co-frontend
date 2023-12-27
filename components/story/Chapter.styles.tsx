@@ -56,7 +56,7 @@ export const CallToSwipe = styled(({ ...rest }) => (
   padding: 0 10px 0 26px;
 
   p {
-    font-family: Inter, 'Open Sans Condensed', sans-serif;
+    font-family: Inter, 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 16px;
     line-height: 28px;
