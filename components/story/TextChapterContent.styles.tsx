@@ -93,7 +93,7 @@ export const Content = styled(({ brand, forwardRef, ...rest }) => (
   }
 
   html {
-    font-family: Inter,"Open Sans", sans-serif !important;
+    font-family: Inter,"Open Sans", sans-serif;
   }
 
   selected {
