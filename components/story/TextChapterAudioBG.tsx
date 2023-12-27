@@ -55,7 +55,7 @@ const TextChapterAudioBG = ({ active, src }: AudioBGProps) => {
 
   if (!src) return null;
 
-  console.log("AUDIO SRC", src);
+  // console.log("AUDIO SRC", src);
 
   return (
     <>
