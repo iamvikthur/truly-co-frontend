@@ -132,7 +132,7 @@ export const Content = styled(({ brand, forwardRef, ...rest }) => (
 
   & > span {
     display: inline-block;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Inter, 'Open Sans', sans-serif;
     font-weight: 400;
   }
 
@@ -162,7 +162,7 @@ export const Content = styled(({ brand, forwardRef, ...rest }) => (
     margin: 0;
     line-height: 1;
     font-weight: 700;
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: Inter, 'Open Sans Condensed', sans-serif;
 
     & + p {
       margin-top: 20px;
@@ -241,7 +241,7 @@ export const Content = styled(({ brand, forwardRef, ...rest }) => (
   ul > li,
   blockquote,
   p {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Inter, 'Open Sans', sans-serif;
     font-weight: 400;
   }
 
